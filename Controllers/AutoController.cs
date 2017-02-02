@@ -22,7 +22,7 @@ public class AutoController : Controller
            return Ok("The id is: " + id);
     }
 
-    // PUT api/auto/quotes/id
+    // PUT api/auto/quotes/putid
 
     [HttpPut("{id}")]
 
@@ -32,7 +32,7 @@ public class AutoController : Controller
         return NoContent();
     }
 
-    // DELETE api/auto/quotes/id
+    // DELETE api/auto/quotes/delid
 
     [HttpDelete("{id}")]
 
