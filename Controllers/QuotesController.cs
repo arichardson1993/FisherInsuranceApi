@@ -3,15 +3,15 @@ using FisherInsuranceApi.Data;
 using FisherInsuranceApi.Models;
 
 [Route("api/auto/quotes")]
-public class AutoController : Controller
+public class QuotesController : Controller
 {
 
     private IMemoryStore db; 
-    public AutoController(IMemoryStore repo) 
+    public QuotesController(IMemoryStore repo) 
     {  
         db = repo; 
     }
-    // POST api/auto/quotes
+    // POST api/quotes
     [HttpPost]
 
     public IActionResult Post([FromBody]Quote quote) 
@@ -19,7 +19,7 @@ public class AutoController : Controller
         return Ok(db.CreateQuote(quote));
     }
 
-    // GET api/auto/quotes/5
+    // GET api/quotes/5
 
     [HttpGet("{id}")]
 
@@ -34,7 +34,7 @@ public class AutoController : Controller
         return Ok(db.RetrieveAllQuotes); 
     }
 
-    // PUT api/auto/quotes/putid
+    // PUT api/quotes/putid
 
     [HttpPut("{id}")]
 
@@ -44,7 +44,7 @@ public class AutoController : Controller
         return Ok(db.UpdateQuote(quote)); 
     }
 
-    // DELETE api/auto/quotes/delid
+    // DELETE api/quotes/delid
 
     [HttpDelete("{id}")]
 
