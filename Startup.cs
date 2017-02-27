@@ -1,13 +1,14 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FisherInsuranceApi.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using FisherInsuranceApi.Data;
 
 namespace FisherInsuranceApi
 {
@@ -29,18 +30,15 @@ namespace FisherInsuranceApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IMemoryStore, MemoryStore>();
-            // Add framework services.
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
             app.UseMvc();
         }
     }
