@@ -5,17 +5,16 @@ using FisherInsuranceApi.Data;
 [Route("api/claims/claim")]
 public class ClaimsController : Controller
 {
-    private IMemoryStore db;
-    public ClaimsController(IMemoryStore repo)
+    public ClaimsController()
     {
-      db = repo;
+      
     } 
     // POST api/claims/claim
     [HttpPost]
 
     public IActionResult Post([FromBody]Claim claim) 
     {
-        return Ok(db.CreateClaim(claim));
+        return Ok();
     }
 
     // GET api/claims/claim/5
@@ -24,13 +23,13 @@ public class ClaimsController : Controller
 
     public IActionResult Get(int id) 
     {
-           return Ok(db.RetrieveClaim(id)); 
+           return Ok(); 
     }
 
     [HttpGet]
     public IActionResult Claims()
     {
-        return Ok(db.RetrieveAllClaims);
+        return Ok();
     } 
 
     // PUT api/claims/claim/id
@@ -39,7 +38,7 @@ public class ClaimsController : Controller
 
     public IActionResult Put(int id, [FromBody]Claim claim) 
     {
-        return Ok(db.UpdateClaim(claim));
+        return Ok();
     }
 
     // DELETE api/claims/id
@@ -47,7 +46,7 @@ public class ClaimsController : Controller
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
    {
-        db.DeleteClaim(id);
+        
         return Ok();
    }
 
