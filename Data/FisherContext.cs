@@ -12,6 +12,7 @@ namespace FisherInsuranceApi.Data
         }
 
         public DbSet<Claim> Claims { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
 
     
     }
